@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Date;
 
-@FeignClient(name="delivery", url="{api.url.delivery}") // 로컬의 delivery url
+@FeignClient(name="delivery", url="${api.url.delivery}") // 로컬의 delivery url
 public interface CancellationService {
 
     @RequestMapping(method= RequestMethod.POST, path="/cancellations")
