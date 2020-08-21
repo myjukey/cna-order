@@ -13,6 +13,8 @@ public class Order {
     private Long id;
     private String productId;
     private Integer qty;
+    private String status; // 마지막날추가
+
 
     @PostPersist
     public void onPostPersist(){
@@ -21,6 +23,11 @@ public class Order {
         ordered.publishAfterCommit();
 
 
+    }
+
+    @PostUpdate
+    public void onPostUpdate(){
+        System.out.println("PostUpdate 추가....................." );
     }
 
     @PreRemove
@@ -68,7 +75,12 @@ public class Order {
         this.qty = qty;
     }
 
+    // 마지막날추가
+    public String getStatus() {
+        return status;
+    }
 
-
-
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
